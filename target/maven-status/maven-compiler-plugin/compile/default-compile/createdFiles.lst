@@ -1,0 +1,8 @@
+com/example/myapp/GlobalExceptionHandler.class
+com/example/myapp/repository/UserRepository.class
+com/example/myapp/repository/ManagerRepository.class
+com/example/myapp/service/UserService.class
+com/example/myapp/model/Manager.class
+com/example/myapp/model/User.class
+com/example/myapp/controller/UserController.class
+com/example/myapp/MySpringBootAppApplication.class

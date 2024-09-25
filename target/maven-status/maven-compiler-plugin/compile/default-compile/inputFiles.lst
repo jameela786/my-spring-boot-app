@@ -1,0 +1,8 @@
+/app/src/main/java/com/example/myapp/controller/UserController.java
+/app/src/main/java/com/example/myapp/MySpringBootAppApplication.java
+/app/src/main/java/com/example/myapp/repository/UserRepository.java
+/app/src/main/java/com/example/myapp/model/User.java
+/app/src/main/java/com/example/myapp/model/Manager.java
+/app/src/main/java/com/example/myapp/service/UserService.java
+/app/src/main/java/com/example/myapp/repository/ManagerRepository.java
+/app/src/main/java/com/example/myapp/GlobalExceptionHandler.java
