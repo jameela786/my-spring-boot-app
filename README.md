@@ -71,19 +71,19 @@ Here are some sample API calls using cURL:
      "full_name": "John Doe",
      "mob_num": "1234567890",
      "pan_num": "ABCDE1234F"
-   }' http://localhost:8080/users/create_user
+   }' http://localhost:8080/create_user
    ```
 
 2. Get Users:
 
    ```shell
-   curl http://localhost:8080/users/get_users
+   curl http://localhost:8080/get_users
    ```
 
 3. Delete User:
 
    ```shell
-   curl -X DELETE http://localhost:8080/users/delete_user/1
+   curl -X DELETE http://localhost:8080/delete_user/1
    ```
 
 4. Update User:
@@ -94,6 +94,6 @@ Here are some sample API calls using cURL:
      "mob_num": "9876543210",
      "pan_num": "FGHIJ5678K",
      "manager_id": 2
-   }' http://localhost:8080/users/update_user/2
+   }' http://localhost:8080/update_user/2
    ```
 
