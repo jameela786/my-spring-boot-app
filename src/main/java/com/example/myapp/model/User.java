@@ -5,7 +5,7 @@ import com.example.myapp.repository.UserRepository;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 import net.bytebuddy.implementation.bind.annotation.Default;
-
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -35,6 +35,7 @@ public class User {
     private String fullName;
 
     @NotBlank(message = "Mobile number is required")
+    @Column(unique = true)
     @Pattern(regexp = "\\d{10}", message = "Mobile number must be 10 digits")
     @JsonProperty("mob_num")
     private String mobileNumber;
@@ -58,6 +59,7 @@ public class User {
     private ManagerRepository managerRepository;
 
 
+    // Add a setter method for ManagerRepository
     public void setManagerRepository(ManagerRepository managerRepository) {
         this.managerRepository = managerRepository;
     }
@@ -65,11 +67,12 @@ public class User {
     @PrePersist
     @PreUpdate
     protected void onPersistOrUpdate() {
+        // Handle normalization logic for both insert and update
         normalizeFields();
         updatedAt = LocalDateTime.now();
 
         if (createdAt == null) {
-            createdAt = LocalDateTime.now();
+            createdAt = LocalDateTime.now(); // Only set if it's a new entity
         }
     }
 
@@ -86,7 +89,12 @@ public class User {
         }
 
         if (panNumber != null) {
+            // Convert PAN number to uppercase
             panNumber = panNumber.toUpperCase();
+        }
+
+        if (!this.isActive) {
+            this.isActive = true;
         }
 
         if (managerId != null) {
@@ -113,6 +121,7 @@ public class User {
     //     updatedAt = LocalDateTime.now();
     // }
 
+    // Getters and setters
 
     public Long getId() {
         return id;
